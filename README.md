@@ -1,24 +1,26 @@
 <!-- jr-brand:start -->
-<div align="center">
+<p align="center">
   <a href="https://jannikreinhard.com/">
-    <img src="https://raw.githubusercontent.com/JayRHa/.github/main/assets/readme/brand-header.png" alt="Jannik Reinhard — Driving AI with passion" width="100%">
+    <img src="https://raw.githubusercontent.com/JayRHa/.github/main/assets/readme/brand-header.png" alt="Jannik Reinhard — I help enterprises ship secure AI agents" width="100%">
   </a>
-  <h1>Agent Skills</h1>
-  <p><strong>The largest community-driven library of Agent Skills (SKILL.md + scripts/references/examples) for Claude, Codex, Gemini CLI, Cursor and friends.</strong></p>
-  <p>
-  <a href="https://jannikreinhard.com/"><img src="https://img.shields.io/badge/Website-146CDD?style=flat-square&amp;logo=wordpress&amp;logoColor=white" alt="Website"></a>
-  <a href="https://github.com/JayRHa"><img src="https://img.shields.io/badge/GitHub-081427?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a>
-  <a href="https://www.linkedin.com/in/jannik-r/"><img src="https://img.shields.io/badge/LinkedIn-0795FF?style=flat-square&amp;logo=linkedin&amp;logoColor=white" alt="LinkedIn"></a>
-  <a href="https://x.com/jannik_reinhard"><img src="https://img.shields.io/badge/X-081427?style=flat-square&amp;logo=x&amp;logoColor=white" alt="X"></a>
-  <a href="https://www.youtube.com/@jannikreinhard"><img src="https://img.shields.io/badge/YouTube-146CDD?style=flat-square&amp;logo=youtube&amp;logoColor=white" alt="YouTube"></a>
-  </p>
-  <p><sub>Driving AI with passion · Microsoft Foundry · Intune · Azure</sub></p>
-</div>
+</p>
+<p align="center">
+  <a href="https://jannikreinhard.com/">Website</a> ·
+  <a href="https://www.linkedin.com/in/jannik-r/">LinkedIn</a> ·
+  <a href="https://x.com/jannik_reinhard">X</a> ·
+  <a href="https://www.youtube.com/@jannikreinhard">YouTube</a>
+</p>
 <!-- jr-brand:end -->
+
+# Agent Skills
+
+**Type:** Collection · **Status:** Community project
 
 ## Overview
 
-**The largest community-driven library of Agent Skills for Claude, Codex, Gemini CLI, Cursor & friends.**
+A collection of Agent Skills with instructions, scripts, references and examples for coding agents.
+
+
 
 Plug-and-play `SKILL.md` packages — instructions, references, scripts, and examples — that teach AI agents to do real work, from code review to career coaching.
 
@@ -26,30 +28,16 @@ Plug-and-play `SKILL.md` packages — instructions, references, scripts, and exa
 `72 Skills` · `10 Categories` · `455+ Files` · `Open Standard` · `Community Maintained`
 
 
-This repository is a growing, **production-ready** library of [Agent Skills](https://agentskills.io). Each skill is a self-contained folder with a `SKILL.md` (instructions + when to use it) plus supporting **references, runnable scripts, examples, and templates**. Compatible agents — Claude Code, the Claude apps, Codex, Gemini CLI, Cursor and more — automatically discover a skill from its description and load the full body only when it's relevant, so skills are cheap until used.
+This repository is a growing library of [Agent Skills](https://agentskills.io). Each skill is a self-contained folder with a `SKILL.md` (instructions + when to use it) plus supporting **references, runnable scripts, examples, and templates**. Compatible agents — Claude Code, the Claude apps, Codex, Gemini CLI, Cursor and more — automatically discover a skill from its description and load the full body only when it's relevant, so skills are cheap until used.
 
 > Each skill is a folder right here in the repo root. Browse the [catalog](#skill-catalog) below — from code review and Terraform to threat modeling, interview prep, budgeting, and trip planning.
-
-## How It Works
-
-```mermaid
-flowchart LR
-    Lib[Skill library] --> Pick[Pick a skill]
-    Pick --> Install[Install into .claude/skills]
-    Install --> Discover[Agent reads description]
-    Discover --> Match{Relevant to task?}
-    Match -- No --> Idle[Stays unloaded, ~0 cost]
-    Match -- Yes --> Load[Load SKILL.md + refs]
-    Load --> Run[Agent follows the workflow]
-    Run --> Result[High-quality output]
-```
 
 ## Quickstart
 
 ### Install a skill into Claude Code
 ```bash
-git clone https://github.com/JayRHa/AgentSkills.git
-cd AgentSkills
+git clone https://github.com/JayRHa/agent-skills.git
+cd agent-skills
 
 # install specific skills (personal scope: ~/.claude/skills)
 ./scripts/install-skill.sh code-reviewer terraform-module-author
@@ -64,6 +52,20 @@ cd AgentSkills
 Then restart your agent. Ask something that matches a skill's description, or invoke it directly with `/code-reviewer`.
 
 You can also just copy any skill folder into your own `.claude/skills/` directory.
+
+## How It Works
+
+```mermaid
+flowchart LR
+    Lib[Skill library] --> Pick[Pick a skill]
+    Pick --> Install[Install into .claude/skills]
+    Install --> Discover[Agent reads description]
+    Discover --> Match{Relevant to task?}
+    Match -- No --> Idle[Stays unloaded, ~0 cost]
+    Match -- Yes --> Load[Load SKILL.md + refs]
+    Load --> Run[Agent follows the workflow]
+    Run --> Result[High-quality output]
+```
 
 ## Skill Catalog
 
@@ -208,7 +210,7 @@ We love contributions!
 
 | | How to contribute |
 |---|---|
-| **Got an idea?** | [Open an issue](https://github.com/JayRHa/AgentSkills/issues/new) describing the skill you'd like to see |
+| **Got an idea?** | [Open an issue](https://github.com/JayRHa/agent-skills/issues/new) describing the skill you'd like to see |
 | **Got a skill?** | Copy [`0-template`](./0-template), fill it in, run `python3 scripts/validate_skills.py`, and open a PR |
 
 ### Disclaimer
@@ -222,13 +224,7 @@ We love contributions!
 This project is available under the terms in [LICENSE](LICENSE).
 
 <!-- jr-brand-footer:start -->
-
 ---
 
-<div align="center">
-  <p><sub>Built and maintained by <a href="https://jannikreinhard.com/">Jannik Reinhard</a> · Microsoft MVP for Security and AI Platform.</sub></p>
-  <p><a href="https://www.buymeacoffee.com/jannikreinf">Support the open-source work</a></p>
-  <p><strong>Stay healthy, Cheers Jannik</strong></p>
-</div>
-
+[Articles and guides](https://jannikreinhard.com/) · [Repository index](https://github.com/JayRHa/.github/blob/main/REPOSITORIES.md)
 <!-- jr-brand-footer:end -->

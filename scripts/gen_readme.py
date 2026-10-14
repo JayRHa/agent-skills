@@ -14,7 +14,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-REPO = "JayRHa/AgentSkills"
+REPO = "JayRHa/agent-skills"
 
 # Folders at the repo root that are NOT skills.
 NON_SKILL_DIRS = {"scripts", ".github", ".git"}
