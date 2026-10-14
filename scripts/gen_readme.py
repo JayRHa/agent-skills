@@ -24,7 +24,7 @@ CATEGORY = {
     "DevOps & Cloud": ["github-actions-builder","terraform-module-author","kubernetes-manifest-author","nginx-config-pro","incident-postmortem","observability-setup","secrets-manager","bash-script-hardening","cron-scheduler","aws-cost-optimizer"],
     "Data & ML": ["pandas-data-cleaning","sql-schema-designer","data-pipeline-architect","chart-chooser","json-schema-author","ab-test-analyzer","prompt-engineer","rag-pipeline-designer"],
     "Writing & Communication": ["technical-writer","readme-generator","changelog-keeper","blog-post-writer","release-notes-writer","adr-author","email-composer","meeting-summarizer","proofreader","api-docs-writer","public-speaking-coach","mermaid-diagram-builder","x-twitter-scraper"],
-    "Productivity & Business": ["okr-writer","swot-analyzer","project-planner","decision-matrix","presentation-builder","user-story-writer","competitive-analysis","job-description-writer"],
+    "Productivity & Business": ["okr-writer","swot-analyzer","project-planner","decision-matrix","presentation-builder","user-story-writer","competitive-analysis","job-description-writer","people-data"],
     "Security": ["threat-modeler","security-auditor","secure-password-policy","gdpr-data-mapper","vulnerability-triage","secure-code-review"],
     "Career & Job Search": ["resume-writer","cover-letter-writer","interview-prep","salary-negotiator"],
     "Learning": ["concept-explainer","flashcard-generator","study-plan-builder","language-tutor","book-summarizer"],

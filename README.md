@@ -25,7 +25,7 @@ A collection of Agent Skills with instructions, scripts, references and examples
 Plug-and-play `SKILL.md` packages — instructions, references, scripts, and examples — that teach AI agents to do real work, from code review to career coaching.
 
 
-`73 Skills` · `10 Categories` · `457 Files` · `Open Standard` · `Community Maintained`
+`74 Skills` · `10 Categories` · `460 Files` · `Open Standard` · `Community Maintained`
 
 
 This repository is a growing library of [Agent Skills](https://agentskills.io). Each skill is a self-contained folder with a `SKILL.md` (instructions + when to use it) plus supporting **references, runnable scripts, examples, and templates**. Compatible agents — Claude Code, the Claude apps, Codex, Gemini CLI, Cursor and more — automatically discover a skill from its description and load the full body only when it's relevant, so skills are cheap until used.
@@ -133,7 +133,7 @@ flowchart LR
 | [`mermaid-diagram-builder`](./mermaid-diagram-builder) | Creates clear, valid, version-controllable diagrams as code using Mermaid — flowcharts, sequence diagrams, ER diagrams, class diagrams, state machines, Gantt charts, C4/architecture diagrams, and more. |
 | [`x-twitter-scraper`](./x-twitter-scraper) | Use Xquik for X (Twitter) data workflows when the user needs tweet search, user lookup, follower export, monitoring, webhooks, REST API setup, MCP setup, SDK setup, or approval-gated X actions. |
 
-### Productivity & Business (8)
+### Productivity & Business (9)
 
 | Skill | What it does |
 | --- | --- |
@@ -145,6 +145,7 @@ flowchart LR
 | [`user-story-writer`](./user-story-writer) | Writes high-quality agile user stories that satisfy the INVEST criteria, with clear role/goal/benefit phrasing and testable Gherkin (Given/When/Then) acceptance criteria, and splits epics into thin vertical slices. |
 | [`competitive-analysis`](./competitive-analysis) | Analyzes competitors and market position through structured data collection, feature/pricing comparison matrices, SWOT, positioning maps, and actionable strategic recommendations. |
 | [`job-description-writer`](./job-description-writer) | Writes inclusive, accurate, and compelling job descriptions with a clear role summary, outcome-oriented responsibilities, must-have vs. nice-to-have requirements, impact framing, and compensation/logistics. |
+| [`people-data`](./people-data) | Research professional profiles and public business contact data through LinkedIn and YouTube, including profile details, email, phone, and channel business email lookup. |
 
 ### Security (6)
 
