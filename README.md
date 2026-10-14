@@ -25,7 +25,7 @@ A collection of Agent Skills with instructions, scripts, references and examples
 Plug-and-play `SKILL.md` packages — instructions, references, scripts, and examples — that teach AI agents to do real work, from code review to career coaching.
 
 
-`72 Skills` · `10 Categories` · `455 Files` · `Open Standard` · `Community Maintained`
+`73 Skills` · `10 Categories` · `457 Files` · `Open Standard` · `Community Maintained`
 
 
 This repository is a growing library of [Agent Skills](https://agentskills.io). Each skill is a self-contained folder with a `SKILL.md` (instructions + when to use it) plus supporting **references, runnable scripts, examples, and templates**. Compatible agents — Claude Code, the Claude apps, Codex, Gemini CLI, Cursor and more — automatically discover a skill from its description and load the full body only when it's relevant, so skills are cheap until used.
@@ -115,7 +115,7 @@ flowchart LR
 | [`prompt-engineer`](./prompt-engineer) | Designs, refines, and systematically evaluates LLM prompts using structure, role framing, few-shot examples, explicit output contracts, and reasoning scaffolds. |
 | [`rag-pipeline-designer`](./rag-pipeline-designer) | Designs end-to-end retrieval-augmented generation (RAG) systems by making principled choices for chunking, embeddings, vector indexing, retrieval, reranking, prompt assembly, and offline evaluation. |
 
-### Writing & Communication (12)
+### Writing & Communication (13)
 
 | Skill | What it does |
 | --- | --- |
@@ -131,6 +131,7 @@ flowchart LR
 | [`api-docs-writer`](./api-docs-writer) | Writes precise, complete reference documentation for HTTP/REST APIs and authors valid OpenAPI 3.1 specifications, including endpoint pages, request/response schemas, parameter tables, authentication, pagination, code samples, and error tables. |
 | [`public-speaking-coach`](./public-speaking-coach) | Coaches a speaker to prepare and deliver a talk, presentation, toast, or pitch — shaping a core message and narrative arc, structuring the talk, writing a strong open and close, tightening delivery, and managing nerves and Q&A. |
 | [`mermaid-diagram-builder`](./mermaid-diagram-builder) | Creates clear, valid, version-controllable diagrams as code using Mermaid — flowcharts, sequence diagrams, ER diagrams, class diagrams, state machines, Gantt charts, C4/architecture diagrams, and more. |
+| [`x-twitter-scraper`](./x-twitter-scraper) | Use Xquik for X (Twitter) data workflows when the user needs tweet search, user lookup, follower export, monitoring, webhooks, REST API setup, MCP setup, SDK setup, or approval-gated X actions. |
 
 ### Productivity & Business (8)
 
