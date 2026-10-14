@@ -3,8 +3,8 @@
 
 Skills live as top-level folders in the repo root (each contains a SKILL.md).
 This scans them, reads each SKILL.md's name + description, groups by the category
-map below, and writes a polished README with badges, a Mermaid diagram, the full
-catalog, quick start, and contributing sections.
+map below, and updates the catalog and counts in the existing README. Shared
+branding, setup instructions and manually maintained sections are preserved.
 
 Usage:
     python3 scripts/gen_readme.py
@@ -84,99 +84,37 @@ def main() -> int:
     if unmapped:
         print(f"warning: {len(unmapped)} skill(s) not in any category: {', '.join(unmapped)}")
 
-    out: list[str] = []
-    out.append('<div align="center">\n')
-    out.append("# 🛠️ AgentSkills\n")
-    out.append("**The largest community-driven library of Agent Skills for Claude, Codex, Gemini CLI, Cursor & friends.**\n")
-    out.append("Plug-and-play `SKILL.md` packages — instructions, references, scripts, and examples — that teach AI agents to do real work, from code review to career coaching.\n")
-    out.append(
-        f"[![Skills](https://img.shields.io/badge/skills-{total}-f4c542?style=for-the-badge&logo=anthropic)](#-skill-catalog)\n"
-        f"[![Categories](https://img.shields.io/badge/categories-{len(used_categories)}-8E2DE2?style=for-the-badge)](#-skill-catalog)\n"
-        f"[![GitHub stars](https://img.shields.io/github/stars/{REPO}?style=for-the-badge&logo=github&color=f4c542)](https://github.com/{REPO}/stargazers)\n"
-        f"[![License: MIT](https://img.shields.io/badge/License-MIT-28a745?style=for-the-badge)](./LICENSE)\n"
-    )
-    out.append(
-        '<p>\n  <a href="https://jannikreinhard.com/">Blog</a> ·\n'
-        '  <a href="https://www.linkedin.com/in/jannik-r/">LinkedIn</a> ·\n'
-        '  <a href="https://x.com/jannik_reinhard">X</a>\n</p>\n'
-    )
-    out.append(f"`{total} Skills` · `{len(used_categories)} Categories` · `{total_files}+ Files` · `Open Standard` · `Community Maintained`\n")
-    out.append("</div>\n")
-
-    out.append("## What is this?\n")
-    out.append(
-        "This repository is a growing, **production-ready** library of [Agent Skills](https://agentskills.io). "
-        "Each skill is a self-contained folder with a `SKILL.md` (instructions + when to use it) plus supporting "
-        "**references, runnable scripts, examples, and templates**. Compatible agents — Claude Code, the Claude apps, "
-        "Codex, Gemini CLI, Cursor and more — automatically discover a skill from its description and load the full "
-        "body only when it's relevant, so skills are cheap until used.\n"
-    )
-    out.append("> Each skill is a folder right here in the repo root. Browse the [catalog](#-skill-catalog) below — from code review and Terraform to threat modeling, interview prep, budgeting, and trip planning.\n")
-    out.append("---\n")
-
-    out.append("## How It Works\n")
-    out.append("```mermaid\nflowchart LR\n"
-               "    Lib[Skill library] --> Pick[Pick a skill]\n"
-               "    Pick --> Install[Install into .claude/skills]\n"
-               "    Install --> Discover[Agent reads description]\n"
-               "    Discover --> Match{Relevant to task?}\n"
-               "    Match -- No --> Idle[Stays unloaded, ~0 cost]\n"
-               "    Match -- Yes --> Load[Load SKILL.md + refs]\n"
-               "    Load --> Run[Agent follows the workflow]\n"
-               "    Run --> Result[High-quality output]\n```\n")
-    out.append("---\n")
-
-    out.append("## Quick Start\n")
-    out.append("### Install a skill into Claude Code\n```bash\n"
-               f"git clone https://github.com/{REPO}.git\n"
-               "cd AgentSkills\n\n"
-               "# install specific skills (personal scope: ~/.claude/skills)\n"
-               "./scripts/install-skill.sh code-reviewer terraform-module-author\n\n"
-               "# or install everything\n"
-               "./scripts/install-skill.sh --all\n\n"
-               "# or into the current project (./.claude/skills)\n"
-               "./scripts/install-skill.sh --project code-reviewer\n```\n")
-    out.append("Then restart your agent. Ask something that matches a skill's description, or invoke it directly with `/code-reviewer`.\n")
-    out.append("You can also just copy any skill folder into your own `.claude/skills/` directory.\n")
-    out.append("---\n")
-
-    out.append("## 📚 Skill Catalog\n")
+    # Keep the curated introduction, setup and shared branding unchanged.
+    # Only the catalog and its inventory counts are generated.
+    readme = ROOT / "README.md"
+    current = readme.read_text(encoding="utf-8")
+    catalog = ["<!-- skill-catalog:start -->", "## Skill Catalog", ""]
     for cat in CATEGORY:
-        rows = [f for f in CATEGORY[cat] if f in present]
+        rows = [folder for folder in CATEGORY[cat] if folder in present]
         if not rows:
             continue
-        out.append(f"### {EMOJI.get(cat,'')} {cat} ({len(rows)})\n")
-        table = ["| Skill | What it does |", "| --- | --- |"]
-        for f in rows:
-            table.append(f"| [`{f}`](./{f}) | {read_desc(f)} |")
-        out.append("\n".join(table) + "\n")
-    out.append("---\n")
-
-    out.append("## Anatomy of a Skill\n")
-    out.append("```text\ncode-reviewer/\n"
-               "├── SKILL.md            # frontmatter (name + description) + the workflow\n"
-               "├── references/         # deep checklists & domain knowledge (loaded on demand)\n"
-               "├── scripts/            # runnable helpers\n"
-               "├── examples/           # worked input -> output\n"
-               "└── templates/          # fill-in document templates\n```\n")
-    out.append("See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the full format and how to add your own.\n")
-    out.append("---\n")
-
-    out.append("## Contributing\n")
-    out.append("We love contributions!\n")
-    out.append("| | How to contribute |\n|---|---|\n"
-               f"| **Got an idea?** | [Open an issue](https://github.com/{REPO}/issues/new) describing the skill you'd like to see |\n"
-               "| **Got a skill?** | Copy [`0-template`](./0-template), fill it in, run `python3 scripts/validate_skills.py`, and open a PR |\n")
-    out.append("---\n")
-
-    out.append('<div align="center">\n')
-    out.append("### Disclaimer\n")
-    out.append("*This is a community repository. The skills are provided as-is — review them before use.*\n")
-    out.append("**If this library helps you, please give it a :star:**\n")
-    out.append("</div>\n")
-
-    (ROOT / "README.md").write_text("\n".join(out) + "\n", encoding="utf-8")
-    print(f"Wrote README.md — {total} skills across {len(used_categories)} categories, {total_files} files.")
+        catalog.extend([f"### {cat} ({len(rows)})", "",
+                        "| Skill | What it does |", "| --- | --- |"])
+        for folder in rows:
+            description = read_desc(folder).replace("|", "\\|")
+            catalog.append(f"| [`{folder}`](./{folder}) | {description} |")
+        catalog.append("")
+    catalog.append("<!-- skill-catalog:end -->")
+    replacement = "\n".join(catalog) + "\n\n"
+    marked = r"(?ms)^<!-- skill-catalog:start -->.*?^<!-- skill-catalog:end -->\s*"
+    unmarked = r"(?ms)^## Skill Catalog\s*\n.*?(?=^## |\Z)"
+    pattern = marked if "<!-- skill-catalog:start -->" in current else unmarked
+    updated, count = re.subn(pattern, lambda _: replacement, current, count=1)
+    if count != 1:
+        raise RuntimeError("README.md must contain exactly one skill catalog section")
+    updated = re.sub(
+        r"`\d+ Skills` · `\d+ Categories` · `\d+\+? Files`",
+        f"`{total} Skills` · `{len(used_categories)} Categories` · `{total_files} Files`",
+        updated,
+        count=1,
+    )
+    readme.write_text(updated, encoding="utf-8")
+    print(f"Updated catalog: {total} skills, {len(used_categories)} categories, {total_files} files.")
     return 0
 
 

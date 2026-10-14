@@ -25,7 +25,7 @@ A collection of Agent Skills with instructions, scripts, references and examples
 Plug-and-play `SKILL.md` packages — instructions, references, scripts, and examples — that teach AI agents to do real work, from code review to career coaching.
 
 
-`72 Skills` · `10 Categories` · `455+ Files` · `Open Standard` · `Community Maintained`
+`72 Skills` · `10 Categories` · `455 Files` · `Open Standard` · `Community Maintained`
 
 
 This repository is a growing library of [Agent Skills](https://agentskills.io). Each skill is a self-contained folder with a `SKILL.md` (instructions + when to use it) plus supporting **references, runnable scripts, examples, and templates**. Compatible agents — Claude Code, the Claude apps, Codex, Gemini CLI, Cursor and more — automatically discover a skill from its description and load the full body only when it's relevant, so skills are cheap until used.
@@ -67,6 +67,7 @@ flowchart LR
     Run --> Result[High-quality output]
 ```
 
+<!-- skill-catalog:start -->
 ## Skill Catalog
 
 ### Engineering (12)
@@ -190,6 +191,8 @@ flowchart LR
 | [`personal-budget-planner`](./personal-budget-planner) | Builds a realistic personal or household budget from income and expenses — choosing a budgeting method (50/30/20, zero-based, envelopes), categorizing spending, setting savings and debt-payoff targets, and producing a monthly plan with an emergency-fund and debt strategy. |
 | [`event-planner`](./event-planner) | Plans events end-to-end — birthdays, weddings, dinner parties, offsites, conferences, fundraisers — with a budget breakdown, guest and venue logistics, a backward-planned timeline, vendor checklist, run-of-show, and contingency plans. |
 | [`gift-advisor`](./gift-advisor) | Recommends thoughtful, personalized gift ideas for any recipient and occasion — by profiling interests, relationship, budget, and occasion, then generating ranked, specific suggestions with reasoning, price tiers, and backup options. |
+
+<!-- skill-catalog:end -->
 
 ## Anatomy of a Skill
 
